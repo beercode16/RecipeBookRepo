@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'RecipeBookLocal';
+  isDisplayShopping :boolean;
+  isDisplayRecipe :boolean;
+
+  isSelect(s : string){
+    if(s==='Shopping'){
+      this.isDisplayShopping = true;
+      this.isDisplayRecipe = false;
+    }
+    else{
+      this.isDisplayShopping = false;
+      this.isDisplayRecipe = true;
+    }
+  }
 }

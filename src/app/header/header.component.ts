@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
+import { Recipe } from "../recipes/recipe.model";
 
 @Component({
     selector : 'app-header',
@@ -6,5 +7,13 @@ import { Component } from "@angular/core";
 
 })
 export class HaederComponent{
-
+    @Output() EventEmit = new EventEmitter<string>();
+    selectDOM(s : string){
+        if(s=== 'Recipe'){
+            this.EventEmit.emit('Recipe');
+        }
+        else{
+            this.EventEmit.emit('Shopping');
+        }
+    }
 }
