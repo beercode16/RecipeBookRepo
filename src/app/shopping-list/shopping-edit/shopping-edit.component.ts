@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Ingredient } from '../../ingredient.model';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './shopping-edit.component.css'
 })
 export class ShoppingEditComponent {
+  @ViewChild('Qty' ,{static:true}) QtyElRef;
+  @Output() AddEvent = new EventEmitter<Ingredient>();
+  onAddIngredian(name : HTMLInputElement){
+        var obj = new Ingredient(name.value , this.QtyElRef.nativeElement.value);
+        this.AddEvent.emit(obj);
+  }
 
 }
